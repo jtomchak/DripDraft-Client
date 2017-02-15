@@ -1,13 +1,18 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+import classnames from 'classnames';
 import logo from './logo.svg';
-import './App.css';
+import './style.css';
 
 class App extends Component {
+  // static propTypes = {}
+  // static defaultProps = {}
+  // state = {}
   render() {
+    const { className, ...props } = this.props;
     return (
-      <div className="App">
+      <div className={classnames('App', className)} {...props}>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Drip Draft I hope this works Pants</h2>
