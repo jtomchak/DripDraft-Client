@@ -4,10 +4,11 @@ import AppBar from 'material-ui/AppBar';
 import classnames from 'classnames';
 
 const Layout = (props) => (
-  <MuiThemeProvider>
+    <MuiThemeProvider>
   <div>
         <AppBar
-          title="drip draft"
+          //Title with child component name
+          title={props.children.props.route.component.name}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
       {props.children}
