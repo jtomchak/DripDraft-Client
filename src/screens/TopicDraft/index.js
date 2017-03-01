@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-
-import { Topics }  from '../../containers';
+import DraftList from '../../containers/DraftList';
 import './style.css';
 
 
-export default class Topic extends Component {
+export default class TopicDraft extends Component {
 constructor(props) {
   super(props);
 } 
@@ -14,7 +13,9 @@ componentDidMount() {
 
   render() {
     return (
-      <Topics {...this.props} />
+        <div>
+            <DraftList {...this.props} />
+        </div>
     );
   }
 

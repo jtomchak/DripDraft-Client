@@ -1,12 +1,14 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'// Needed for onTouchTap
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
-  export default function TopicCard (props, context) {
-    console.log(props);
-    console.log(context);
+
+  export default function TopicCard (props) {
+
+   function handleOnTouchTapNewDraft(event){
+     props.onTouchTapNewDraft(event)
+   } 
+
         return (
           <Card>
             <CardHeader
@@ -16,7 +18,7 @@ injectTapEventPlugin();
             />
             <CardActions>
               <FlatButton 
-              onTouchTap={() => props.onTouchTap()}
+              onTouchTap={e => handleOnTouchTapNewDraft(e)}
               label="New Draft" />
             </CardActions>
             <CardText expandable={true}>

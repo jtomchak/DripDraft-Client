@@ -3,12 +3,10 @@ import React, { PropTypes, Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 const { store } = require('./Store')
 const { Provider } = require('react-redux')
+const injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
 import Routes from './routes';
-
-import Layout from './Layout';
-import About from '../About'
-import NotFound from '../NotFound';
 import './style.css';
 
 

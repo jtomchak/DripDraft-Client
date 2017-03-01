@@ -35,18 +35,21 @@ getTopics() {
   })
 }
 
-onTouchTap(e) {
-  console.log("button town");
+onTouchTapNewDraft(topic, event) {
+  event.preventDefault();
+  this.props.router.push(`/topic/${topic._id}`)
 }
 
   render() {
     const { className, ...props } = this.props;
-    const topicCards =  this.state.topics.map((topic) =>
-        <TopicCard 
-        onTouchTap={() => this.onTouchTap()} 
+    const topicCards =  this.state.topics.map((topic) => {
+      let onTouchTap = this.onTouchTapNewDraft.bind(this, topic);
+       return ( <TopicCard 
+        onTouchTapNewDraft={onTouchTap} 
         key={topic._id}
         {...topic}/>
-        )
+       )
+    })
 
     return (
       <div className={classnames('Topic', className)} {...props}>
