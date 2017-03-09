@@ -3,14 +3,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import classnames from 'classnames';
 
+import { AppToolbar } from '../../containers';
+
 const Layout = (props) => (
     <MuiThemeProvider>
   <div>
-        <AppBar
-          //Title with child component name
-          title={props.children.props.route.component.name}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
+    <AppToolbar />
       {props.children}
   </div>
   </MuiThemeProvider>

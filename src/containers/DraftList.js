@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
+import { List } from 'material-ui/List';
 import { fetchDrafts } from '../services/draftService';
-
+import { DraftListItem } from '../components'
 
 export default class DraftList extends Component {
 
@@ -33,11 +34,26 @@ getDrafts() {
     console.log(error);
   })
 }
+
+onTouchTapDraft(topic, event) {
+  event.preventDefault();
+  console.log("tappie tap tap");
+}
+
 render() {
+  const draftListItems =  this.state.drafts.map((draft) => {
+    let onTouchTap = this.onTouchTapDraft.bind(this, draft);
+      return ( <DraftListItem
+        onTouchTapDraft={onTouchTap} 
+        key={draft._id}
+        {...draft}/>
+      )
+  })
+
     return(
-        <div>
-            {this.state.topicId}
-        </div>
+        <List>
+            { draftListItems }
+        </List>
     )
 }
 

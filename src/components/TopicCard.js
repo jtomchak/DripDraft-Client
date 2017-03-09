@@ -19,7 +19,7 @@ import FlatButton from 'material-ui/FlatButton'// Needed for onTouchTap
             <CardActions>
               <FlatButton 
               onTouchTap={e => handleOnTouchTapNewDraft(e)}
-              label="New Draft" />
+              label="Drafts" />
             </CardActions>
             <CardText expandable={true}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
