@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import LoginForm from '../components/LoginForm.js';
+import login from '../services/loginService';
 
 
 class Login extends React.Component {
@@ -32,6 +33,16 @@ class Login extends React.Component {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
 
+    var loginUser = login(this.state.user);
+    loginUser
+    .then(data => {
+     this.props.router.push(`/`) 
+        this.setState({
+        });
+    })
+    .catch(error => {
+      console.log(error);
+    })
     console.log('email:', this.state.user.email);
     console.log('password:', this.state.user.password);
   }
