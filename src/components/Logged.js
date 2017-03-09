@@ -15,9 +15,11 @@ const Logged = (props) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
-    <MenuItem primaryText="Refresh" />
     <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
+    <MenuItem 
+    primaryText="Sign out"
+    onTouchTap={e => props.onSignOut(e)}
+     />
   </IconMenu>
 );
 

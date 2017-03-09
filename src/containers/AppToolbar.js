@@ -19,6 +19,10 @@ class AppToolbar extends Component {
     this.setState({logged: logged});
   };
 
+  onSignOut(event) {
+    console.log('sign out');
+  }
+
   render() {
     return (
       <div>
@@ -31,8 +35,9 @@ class AppToolbar extends Component {
         />*/}
         <AppBar
           title="essay"
-          iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-          iconElementRight={this.state.logged ? <Logged /> : <LoginButton />}
+          iconElementRight={this.state.logged ? 
+          <Logged 
+          onSignOut={this.onSignOut.bind(this)}/> : <LoginButton />}
         />
       </div>
     );

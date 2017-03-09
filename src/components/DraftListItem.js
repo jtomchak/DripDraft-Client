@@ -11,7 +11,7 @@ import FlatButton from 'material-ui/FlatButton'// Needed for onTouchTap
 
         return (
             <ListItem className="list-item" 
-            onTouchTap={e => handleOnTouchTapDraft(e)}
+            onTouchTap={e => props.onTouchTapDraft(e)}
             primaryText={ props.title }
             secondaryText={ props.text }
             />
