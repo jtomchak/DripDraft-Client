@@ -15,6 +15,16 @@ var axiosService = axios.create({
   /* other custom settings */
 });
 
+/**
+ * Using to urlencoded x-form posts :-(
+ */
+const toQueryString = function(obj) {
+    return Object.keys(obj).map(k => {
+      return encodeURIComponent(k) + "=" + encodeURIComponent(obj[k])
+    })
+    .join("&");
+}
+
 axiosService.interceptors.request.use(function(config) {
   const token = cache.fetchAccessToken();
 
@@ -26,4 +36,4 @@ axiosService.interceptors.request.use(function(config) {
   return Promise.reject(err);
 });
 
-module.exports = axiosService;
+export { axiosService, toQueryString }
