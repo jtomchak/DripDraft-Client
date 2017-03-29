@@ -13,6 +13,7 @@ import FlatButton from 'material-ui/FlatButton'// Needed for onTouchTap
           <Card>
             <CardHeader
               title={props.name}
+              subtitle={"Streak: " + props.streak}
               actAsExpander={true}
               showExpandableButton={true}
             />

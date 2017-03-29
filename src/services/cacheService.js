@@ -15,6 +15,10 @@ class Cache {
       fetchAccessToken() {
           return this.accessToken;
       }
+
+      clearAccessToken() {
+        this.accessToken = '';
+      }
 }
 
 export let cache = new Cache();

@@ -4,6 +4,7 @@ import LoginButton from './LoginButton'
 import Logged from './Logged'
 import SignUpForm from './SignUpForm'
 import LoginForm from './LoginForm'
+import NewDraftAction from './NewDraftAction'
 
 
 
@@ -13,5 +14,6 @@ export {
     LoginButton,
     Logged,
     SignUpForm,
-    LoginForm
+    LoginForm,
+    NewDraftAction
 }

@@ -1,6 +1,8 @@
 // @flow
 import React, { PropTypes, Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import 'react-virtualized/styles.css'
+
 const { store } = require('./Store')
 const { Provider } = require('react-redux')
 const injectTapEventPlugin = require("react-tap-event-plugin");

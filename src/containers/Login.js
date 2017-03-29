@@ -43,8 +43,6 @@ class Login extends React.Component {
     .catch(error => {
       console.log(error);
     })
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
   }
 
   /**

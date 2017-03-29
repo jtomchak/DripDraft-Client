@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
-import { List } from 'material-ui/List';
+import { List } from 'react-virtualized/dist/commonjs/List'
 import { fetchDrafts } from '../services/draftService';
-import { DraftListItem } from '../components'
+import { DraftListItem, NewDraftAction } from '../components'
 
 export default class DraftList extends Component {
 
@@ -51,10 +51,17 @@ render() {
   })
 
     return(
-        <List>
+      <div>
+        <ul>
             { draftListItems }
-        </List>
+        </ul>
+        <NewDraftAction />
+      </div>
     )
 }
 
 }
+
+const style = {
+
+};

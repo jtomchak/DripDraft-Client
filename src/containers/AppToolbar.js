@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 import { LoginButton, Logged } from '../components'
 
@@ -15,29 +13,22 @@ class AppToolbar extends Component {
       };
     }
 
-  handleChange = (event, logged) => {
+  handleOnChange (event, logged) {
     this.setState({logged: logged});
-  };
-
-  onSignOut(event) {
-    console.log('sign out');
+    if (!logged) {
+      this.props.router.push(`/login`) 
+    }
   }
+
 
   render() {
     return (
       <div>
-        {/*<Toggle
-          label="Logged"
-          defaultToggled={true}
-          onToggle={this.handleChange}
-          labelPosition="right"
-          style={{margin: 20}}
-        />*/}
         <AppBar
           title="essay"
           iconElementRight={this.state.logged ? 
-          <Logged 
-          onSignOut={this.onSignOut.bind(this)}/> : <LoginButton />}
+          <Logged handleOnChange={this.handleOnChange.bind(this)} /> : 
+          <LoginButton onTouchTap={this.handleOnChange.bind(this)} />}
         />
       </div>
     );

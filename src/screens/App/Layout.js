@@ -8,7 +8,7 @@ import { AppToolbar } from '../../containers';
 const Layout = (props) => (
     <MuiThemeProvider>
   <div>
-    <AppToolbar />
+    <AppToolbar {...props}/>
       {props.children}
   </div>
   </MuiThemeProvider>
