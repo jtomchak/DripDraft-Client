@@ -4,10 +4,10 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "devDependencies": {
-    "flow-bin": "^0.38.0"
+    "flow-bin": "^0.38.0",
+    "react-scripts": "0.8.5"
   },
   "dependencies": {
-    "react-scripts": "0.8.5",
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
