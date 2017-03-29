@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
-import { List } from 'react-virtualized/dist/commonjs/List'
+import { List } from 'react-virtualized/dist/commonjs/List';
 import { fetchDrafts } from '../services/draftService';
 import { DraftListItem, NewDraftAction } from '../components'
 
@@ -40,28 +40,35 @@ onTouchTapDraft(topic, event) {
   console.log("tappie tap tap");
 }
 
-render() {
-  const draftListItems =  this.state.drafts.map((draft) => {
-    let onTouchTap = this.onTouchTapDraft.bind(this, draft);
-      return ( <DraftListItem
+
+rowRenderer ({
+  key,         // Unique key within array of rows
+  index,       // Index of row within collection
+  isScrolling, // The List is currently being scrolled
+  isVisible,   // This row is visible within the List (eg it is not an overscanned row)
+  style        // Style object to be applied to row (to position it)
+}) {
+  const draft = this.state.drafts[index];
+  let onTouchTap = this.onTouchTapDraft.bind(this, draft);
+      return (
+       <DraftListItem
         onTouchTapDraft={onTouchTap} 
         key={draft._id}
         {...draft}/>
       )
-  })
-
-    return(
+}
+  
+render() {
+    return (
       <div>
-        <ul>
-            { draftListItems }
-        </ul>
+        <List
+          width={300}
+          height={300}
+          rowCount={this.state.drafts.length}
+          rowHeight={20}
+          rowRenderer={this.rowRenderer.bind(this)}
+        />
         <NewDraftAction />
       </div>
-    )
+    )} 
 }
-
-}
-
-const style = {
-
-};
